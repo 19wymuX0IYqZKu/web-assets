@@ -415,6 +415,7 @@ const show = {
       customFormsElement.appendChild(hrElement);
       customFormsElement.appendChild(scholarshipsElement);
     } else {
+      const customFormsElement = document.querySelector("#grid_customForms tbody");
       customFormsElement.removeChild(customFormsElement.lastElementChild);
       customFormsElement.removeChild(customFormsElement.lastElementChild);
     }
