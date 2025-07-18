@@ -406,9 +406,17 @@ const show = {
   },
   scholarshipsSection: (visible) => {
     if (visible) {
-      console.log("Showing scholarships section");
+      const customFormsElement = document.querySelector("#grid_customForms tbody");
+      const hrElement = document.createElement("tr");
+      hrElement.innerHTML = '<td colspan="3"><hr></td>';
+      const scholarshipsElement = document.createElement("tr");
+      scholarshipsElement.innerHTML =
+        '<td>Not Required:</td><td><a role="button" class="button" style="width: 300px; background-color: rgb(0, 47, 108); color: white; font-size: 13px;" target="_new" href="https://forms.gle/HVbAY3wjCfqGFBP56">Christos M. Perakis Academic Scholarship</a></td><td style="padding-left: 23px">This form is optional</td>';
+      customFormsElement.appendChild(hrElement);
+      customFormsElement.appendChild(scholarshipsElement);
     } else {
-      console.log("Hiding scholarships section");
+      customFormsElement.removeChild(customFormsElement.lastElementChild);
+      customFormsElement.removeChild(customFormsElement.lastElementChild);
     }
   },
 };
