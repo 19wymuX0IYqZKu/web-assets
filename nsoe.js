@@ -425,10 +425,10 @@ const show = {
 const requestFor = {
   schoolAdmission: (selected) => {
     if (selected) {
-      // show.scholarshipsSection(true);
+      show.scholarshipsSection(true);
       currentRequestFor = "100";
     } else {
-      // show.scholarshipsSection(false);
+      show.scholarshipsSection(false);
     }
   },
   schoolVisit: (selected) => {
