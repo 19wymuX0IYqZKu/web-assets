@@ -404,13 +404,22 @@ const show = {
       document.getElementById("attachinfo").style.display = "none";
     }
   },
+  scholarshipsSection: (visible) => {
+    if (visible) {
+      console.log("Showing scholarships section");
+    } else {
+      console.log("Hiding scholarships section");
+    }
+  },
 };
 
 const requestFor = {
   schoolAdmission: (selected) => {
     if (selected) {
+      show.scholarshipsSection(true);
       currentRequestFor = "100";
     } else {
+      show.scholarshipsSection(false);
     }
   },
   schoolVisit: (selected) => {
