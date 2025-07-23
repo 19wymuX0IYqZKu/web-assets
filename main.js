@@ -148,14 +148,14 @@ if (duserid) {
                 } else {
                   loadTab("fam");
                 }
-                // } else if (students[0]["House"] === "") {
-                //     if (hCurrentTab.value === "discat") {
-                //         students[0]["House"] = "Pending";
-                //         localStorage.setItem("studentsPending", JSON.stringify(students));
-                //         openNewWindow("sstudcatedit001.w?vCategoryEntity=000&vDetailType=General&action=initializeStudent", 655, 460, 0, "select");
-                //     } else {
-                //         loadTab("discat");
-                //     }
+              } else if (students[0]["House"] === "") {
+                if (hCurrentTab.value === "discat") {
+                  students[0]["House"] = "Pending";
+                  localStorage.setItem("studentsPending", JSON.stringify(students));
+                  openNewWindow("sstudcatedit001.w?vCategoryEntity=000&vDetailType=General&action=initializeStudent", 655, 460, 0, "select");
+                } else {
+                  loadTab("discat");
+                }
               }
             }
           } else {
