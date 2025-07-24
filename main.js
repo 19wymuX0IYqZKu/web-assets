@@ -64,6 +64,7 @@ if (duserid) {
     setupShortcuts();
 
     if (urlParams.activeScreen === "sstudtabs001.w") {
+      debugger;
       const studentsPending = JSON.parse(localStorage.getItem("studentsPending"));
       const students = studentsPending && studentsPending.rows ? studentsPending.rows : studentsPending;
       if (hCurrentTab.value === "prfl") {
@@ -182,7 +183,6 @@ if (duserid) {
             ) {
               alert("Please run Powershell script first before you can continue.");
             } else {
-              debugger;
               localStorage.setItem("studentsPending", JSON.stringify(result.success));
               refreshTabs();
             }
