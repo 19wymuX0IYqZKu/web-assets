@@ -95,8 +95,8 @@ if (duserid) {
             if (
               students[0]["SW Profile"] === "Pending" ||
               students[0]["SW Web Access"] === "Pending" ||
-              students[0]["SW Family"] === "Pending" ||
-              students[0]["House"] === "Pending"
+              students[0]["SW Family"] === "Pending" // ||
+              // students[0]["House"] === "Pending"
             ) {
               setTimeout(() => {
                 refreshTabs();
@@ -148,15 +148,15 @@ if (duserid) {
                 } else {
                   loadTab("fam");
                 }
-              } else if (students[0]["House"] === "") {
-                if (hCurrentTab.value === "discat") {
-                  students[0]["House"] = "Pending";
-                  localStorage.setItem("studentsPending", JSON.stringify(students));
-                  openNewWindow("sstudcatedit001.w?vCategoryEntity=000&vDetailType=General&action=initializeStudent", 655, 460, 0, "select");
-                } else {
-                  loadTab("discat");
-                }
-              }
+              } // else if (students[0]["House"] === "") {
+              //   if (hCurrentTab.value === "discat") {
+              //     students[0]["House"] = "Pending";
+              //     localStorage.setItem("studentsPending", JSON.stringify(students));
+              //     openNewWindow("sstudcatedit001.w?vCategoryEntity=000&vDetailType=General&action=initializeStudent", 655, 460, 0, "select");
+              //   } else {
+              //     loadTab("discat");
+              //   }
+              // }
             }
           } else {
             tCurrentNameKey.value = students[0]["Alpha Key"];
@@ -353,47 +353,49 @@ if (duserid) {
         document.getElementById("encrecID").value = "jkcYiSpkiviKdcll";
         openNewWindow("sspusedit003.w?allLogin=yes", 1024, 768, 1, "", 0, 2);
       }
-    } else if (urlParams.activeScreen === "sstudcatedit001.w" && urlParams.action === "initializeStudent") {
-      (async () => {
-        const students = JSON.parse(localStorage.getItem("studentsPending"));
-        let house;
-        let elems = document.querySelectorAll("input[checked]");
-        for (let i in elems) {
-          if (elems[i].parentElement) {
-            if (
-              elems[i].parentElement.parentElement.parentElement.children[1].innerText === "HOU" &&
-              elems[i].parentElement.parentElement.parentElement.children[3]
-            ) {
-              house = elems[i].parentElement.parentElement.parentElement.children[3].innerText;
-              break;
-            }
-          }
-        }
-        if (house) {
-          await jsonpCall("action=jsonpUpdateDB&table=Students&alphaKey=" + students[0]["Alpha Key"] + "&column=House&value=" + house);
-          checkSave("edit", "sstudcathttp001.w", "close", "");
-        } else {
-          let result = await jsonpCall(
-            "action=jsonpGetHouseForStudent&table=Students&fullName=" + students[0]["Full Name"] + "&graduationYear=" + students[0]["Graduation Year"]
-          );
-          if (result && result.success) {
-            let houseRows = document.querySelectorAll('[delinfo="HOU"]');
-            for (i in houseRows) {
-              if (houseRows[i].children[3].innerText === result.success) {
-                houseRows[i].children[0].querySelector("input").click();
-                students[0]["House"] = result.success;
-                localStorage.setItem("studentsPending", JSON.stringify(students));
-                await jsonpCall("action=jsonpUpdateDB&table=Students&alphaKey=" + students[0]["Alpha Key"] + "&column=House&value=" + result.success);
-                checkSave("edit", "sstudcathttp001.w", "close", "");
-                break;
-              }
-            }
-          } else {
-            // alert("No House Found");
-            checkSave("edit", "sstudcathttp001.w", "close", "");
-          }
-        }
-      })();
+      // else if (urlParams.activeScreen === "sstudcatedit001.w" && urlParams.action === "initializeStudent") {
+      //   (async () => {
+      //     const students = JSON.parse(localStorage.getItem("studentsPending"));
+      //     let house;
+      //     let elems = document.querySelectorAll("input[checked]");
+      //     for (let i in elems) {
+      //       if (elems[i].parentElement) {
+      //         if (
+      //           elems[i].parentElement.parentElement.parentElement.children[1].innerText === "HOU" &&
+      //           elems[i].parentElement.parentElement.parentElement.children[3]
+      //         ) {
+      //           house = elems[i].parentElement.parentElement.parentElement.children[3].innerText;
+      //           break;
+      //         }
+      //       }
+      //     }
+      //     if (house) {
+      //       await jsonpCall("action=jsonpUpdateDB&table=Students&alphaKey=" + students[0]["Alpha Key"] + "&column=House&value=" + house);
+      //       checkSave("edit", "sstudcathttp001.w", "close", "");
+      //     } else {
+      //       let result = await jsonpCall(
+      //         "action=jsonpGetHouseForStudent&table=Students&fullName=" + students[0]["Full Name"] + "&graduationYear=" + students[0]["Graduation Year"]
+      //       );
+      //       if (result && result.success) {
+      //         let houseRows = document.querySelectorAll('[delinfo="HOU"]');
+      //         for (i in houseRows) {
+      //           if (houseRows[i].children[3].innerText === result.success) {
+      //             houseRows[i].children[0].querySelector("input").click();
+      //             students[0]["House"] = result.success;
+      //             localStorage.setItem("studentsPending", JSON.stringify(students));
+      //             await jsonpCall("action=jsonpUpdateDB&table=Students&alphaKey=" + students[0]["Alpha Key"] + "&column=House&value=" + result.success);
+      //             checkSave("edit", "sstudcathttp001.w", "close", "");
+      //             break;
+      //           }
+      //         }
+      //       } else {
+      //         // alert("No House Found");
+      //         checkSave("edit", "sstudcathttp001.w", "close", "");
+      //       }
+      //     }
+      //   })();
+      // }
+      // })();
     }
   } else if (duserid.value === "rontogiannisl" || duserid.value === "efstathiouv") {
     const custfrmsAs = document.querySelectorAll("#custfrmsdiv a");
