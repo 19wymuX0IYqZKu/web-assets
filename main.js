@@ -64,7 +64,6 @@ if (duserid) {
     setupShortcuts();
 
     if (urlParams.activeScreen === "sstudtabs001.w") {
-      debugger;
       const studentsPending = JSON.parse(localStorage.getItem("studentsPending"));
       const students = studentsPending && studentsPending.rows ? studentsPending.rows : studentsPending;
       if (hCurrentTab.value === "prfl") {
