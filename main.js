@@ -182,6 +182,7 @@ if (duserid) {
             ) {
               alert("Please run Powershell script first before you can continue.");
             } else {
+              debugger;
               localStorage.setItem("studentsPending", JSON.stringify(result.success));
               refreshTabs();
             }
