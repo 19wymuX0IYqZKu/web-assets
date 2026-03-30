@@ -613,7 +613,8 @@ setTimeout(() => {
       requestFor.schoolAdmission(false);
     } else if (currentRequestFor === "050") {
       requestFor.schoolVisit(false);
-    } else if (currentRequestFor === "500") {debugger;
+    } else if (currentRequestFor === "500") {
+      debugger;
       requestFor.summerCamp(false);
     } else if (currentRequestFor === "600") {
       requestFor.virtualCourses(false);
