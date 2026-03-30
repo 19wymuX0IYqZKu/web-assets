@@ -149,6 +149,7 @@ completeStep(5, false);
       }
     });
 
+    debugger;
     toHide.forEach((item) => {
       let element = document.querySelector(item.selector);
       if (element && element.style.visibility !== "none") {
