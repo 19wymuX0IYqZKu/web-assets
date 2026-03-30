@@ -470,7 +470,7 @@ const requestFor = {
       document.querySelector("#afterSubmitMessage").innerHTML = originalAfterSubmitMessage;
     }
   },
-  summerCamp: (selected) => {
+  summerCamp: (selected) => {debugger;
     if (selected) {
       show.birthState(false);
       show.additionalInformation(false);
