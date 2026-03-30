@@ -1,4 +1,5 @@
 var urlParams = getURLParams();
+debugger;
 
 function getURLParams() {
   const url = new URL(window.location.href);
