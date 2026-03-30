@@ -180,6 +180,7 @@ completeStep(5, false);
       }
     }
 
+    debugger;
     document.querySelectorAll(".button").forEach((button) => {
       if (button.style.backgroundColor === "") {
         button.style.backgroundColor = "#002f6c";
