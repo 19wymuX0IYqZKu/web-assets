@@ -149,7 +149,6 @@ completeStep(5, false);
       }
     });
 
-    debugger;
     toHide.forEach((item) => {
       let element = document.querySelector(item.selector);
       if (element && element.style.visibility !== "none") {
@@ -471,7 +470,7 @@ const requestFor = {
       document.querySelector("#afterSubmitMessage").innerHTML = originalAfterSubmitMessage;
     }
   },
-  summerCamp: (selected) => {debugger;
+  summerCamp: (selected) => {
     if (selected) {
       show.birthState(false);
       show.additionalInformation(false);
@@ -614,7 +613,7 @@ setTimeout(() => {
       requestFor.schoolAdmission(false);
     } else if (currentRequestFor === "050") {
       requestFor.schoolVisit(false);
-    } else if (currentRequestFor === "500") {
+    } else if (currentRequestFor === "500") {debugger;
       requestFor.summerCamp(false);
     } else if (currentRequestFor === "600") {
       requestFor.virtualCourses(false);
