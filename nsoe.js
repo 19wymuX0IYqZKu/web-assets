@@ -1,5 +1,4 @@
 var urlParams = getURLParams();
-debugger;
 
 function getURLParams() {
   const url = new URL(window.location.href);
@@ -180,7 +179,6 @@ completeStep(5, false);
       }
     }
 
-    debugger;
     document.querySelectorAll(".button").forEach((button) => {
       if (button.style.backgroundColor === "") {
         button.style.backgroundColor = "#002f6c";
